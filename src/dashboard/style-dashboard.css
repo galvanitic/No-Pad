@@ -258,6 +258,12 @@ button {
   color: white;
   font-size: 1.2em;
 }
+.Overview .selected .menu-icon {
+  display: none;
+  color: white;
+  padding-right: 10px;
+  font-size: 1.4em;
+}
 
 /* Note
 ==================== */
@@ -267,4 +273,30 @@ button {
   flex-direction: column;
 
   background-color: rgb(51, 51, 51);
+}
+
+
+
+
+
+
+/****************************************
+            CSS Media Queries
+****************************************/
+
+/* Mobile Devices */
+@media (max-width: 700px) {
+  .sidenav {
+    /* display: none; */
+    width: 0;
+  }
+
+  .Overview .selected .menu-icon {
+    display: block;
+  }
+
+  .grid-container {
+    margin-left: 0;
+  }
+
 }
