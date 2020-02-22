@@ -77,7 +77,8 @@ button {
 
   flex-direction: column;
   font-family: 'Open Sans', sans-serif;
-  background-color: rgba(0, 0, 0, 1);
+  /* background-color: rgba(0, 0, 0, 1); */
+  background-color: rgb(25, 25, 25);
 
   transition: width 0.5s;
 }
@@ -91,7 +92,7 @@ button {
 
   padding: 10px;
 
-  background-color: rgba(65, 70, 70, 0.5);
+  /* background-color: rgba(65, 70, 70, 0.5); */
 }
 .user > img {
   display: block;
@@ -117,7 +118,7 @@ button {
   color: rgb(220, 220, 220);
   font-size: 1em;
 }
-.user-text #position {
+.user-text #email {
   color: rgb(180, 180, 180);
   font-size: 0.8em;
   padding: 5px 0;
@@ -217,3 +218,40 @@ button {
 /****************************************
                 Content
 ****************************************/
+
+/* grid-container
+==================== */
+.grid-container {
+  height: 100%;
+  /* Same as the Sidenav */
+  margin-left: 250px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* grid-template-rows: 1fr; */
+  grid-template-areas:
+    "Overview"
+    "Note";
+  font-family: 'Open Sans', sans-serif;
+
+  transition: margin-left 0.5s;
+}
+
+/* grid-container
+==================== */
+.Overview {
+  /* grid-area: Overview; */
+  /* display: flex; */
+  /* flex-direction: column; */
+
+  background-color: rgb(38, 38, 38);
+}
+
+/* Content
+==================== */
+.Note {
+  /* grid-area: Note; */
+  /* display: flex; */
+  /* flex-direction: column; */
+
+  background-color: rgb(189, 32, 32);
+}
