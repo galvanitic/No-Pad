@@ -127,7 +127,7 @@ button {
 ==================== */
 .QuickAccess {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
 
@@ -146,6 +146,72 @@ button {
   color: rgb(220, 220, 220);
   padding: 0 10px 0 0;
   font-size: 0.9em;
+}
+
+/* Workspaces
+==================== */
+.Workspaces {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  padding: 10px;
+}
+.Workspaces h2 {
+  color: rgb(180, 180, 180);
+  font-size: 1em;
+}
+.Workspaces_list li {
+  color: rgb(220, 220, 220);
+  font-size: 1em;
+  padding: 5px 0;
+}
+.Workspaces_list li:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: white;
+}
+.Workspaces_list i {
+  color: rgb(220, 220, 220);
+  padding: 0 10px 0 5px;
+  font-size: 0.9em;
+}
+.Workspaces .fa-ul {
+  list-style-type: none;
+  margin-left: 0em;
+  padding-left: 0;
+}
+
+/* Misc
+==================== */
+.Misc {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  padding: 10px;
+}
+.Misc h2 {
+  color: rgb(180, 180, 180);
+  font-size: 1em;
+}
+.Misc_list li {
+  color: rgb(220, 220, 220);
+  font-size: 1em;
+  padding: 5px 0;
+}
+.Misc_list li:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: white;
+}
+.Misc_list i {
+  color: rgb(220, 220, 220);
+  padding: 0 10px 0 5px;
+  font-size: 0.9em;
+}
+.Misc .fa-ul {
+  list-style-type: none;
+  margin-left: 0em;
+  padding-left: 0;
 }
 
 /****************************************
