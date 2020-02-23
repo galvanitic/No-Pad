@@ -44,4 +44,29 @@ $(document).ready(function() {
     }
   })
 
+  function handleFolderExpansion(event) {
+    // Handle Folder Expansion
+    // $(".fa-caret-right").click(function(event) {
+    //   $(this).removeClass("fas fa-caret-right");
+    //   $(this).addClass("fas fa-caret-down");
+    // })
+    // $(".fa-caret-down").click(function(event) {
+    //   $(this).removeClass("fas fa-caret-down");
+    //   $(this).addClass("fas fa-caret-right");
+    // })
+
+    $(".expand-icon").click(function(event) {
+
+      if ($(this).hasClass("fa-caret-right")) {
+        $(this).removeClass("fa-caret-right");
+        $(this).addClass("fa-caret-down");
+      } else if ($(this).hasClass("fa-caret-down")) {
+        $(this).removeClass("fa-caret-down");
+        $(this).addClass("fa-caret-right");
+      }
+    })
+
+  }
+  handleFolderExpansion(event);
+
 });
