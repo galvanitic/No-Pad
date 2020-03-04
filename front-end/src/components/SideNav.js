@@ -3,7 +3,7 @@ import portrait from '../img/portrait.jpg'
 class SideNav extends React.Component {
   render () {
     return(
-     <aside>
+     <aside className="sidenav">
        <div className="user">
           <img src={portrait} alt="Portrait of me" />
           <div className="user-text">
