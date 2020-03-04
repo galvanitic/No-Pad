@@ -24,6 +24,8 @@ const Router = () => {
     <Switch>
       <Route path="/login" component={LogIn} />
       <ProtectedRoute path="/dash" component={Dashboard} />
+      
+      <Redirect path="*" to="/login"/>
     </Switch>
   )
 }
