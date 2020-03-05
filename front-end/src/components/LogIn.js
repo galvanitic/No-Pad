@@ -1,9 +1,12 @@
 import React from 'react';
+import '../style/style-login.css'
 
 class LogIn extends React.Component {
   render () {
     return(
-     <h1>Login Screen</h1>
+      <div id="login-container">
+        <div id="login-form"></div>
+      </div>
     )
   }
 }
