@@ -151,7 +151,12 @@ button {
   /* background-color: rgb(64, 64, 64); */
   color: white;
 }
-.QuickAccess_list i {
+/* .QuickAccess_list i {
+  color: rgb(220, 220, 220);
+  padding: 0 10px 0 0;
+  font-size: 0.9em;
+} */
+.sidenav-icon {
   color: rgb(220, 220, 220);
   padding: 0 10px 0 0;
   font-size: 0.9em;
