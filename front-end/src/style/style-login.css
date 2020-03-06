@@ -156,3 +156,26 @@ button {
 #login-form #signin:hover {
   background-color: rgb(240, 240, 240);
 }
+
+
+
+/****************************************
+            CSS Media Queries
+****************************************/
+
+/* Mobile Devices */
+@media (max-width: 700px) {
+  #login-container {
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+  
+    border-radius: 0px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    -moz-backdrop-filter: blur(4px);
+    -o-backdrop-filter: blur(4px);
+    -ms-backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.212);
+  }
+}
