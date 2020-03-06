@@ -24,26 +24,26 @@ class SideNav extends React.Component {
             <li><span className="fa-li"><i className="far fa-square"></i></span>Shared with Me</li>
           </ul> --> */}
           <ul className="QuickAccess_list fa-ul">
-            <li><span className="fa-li"><i className=""></i></span><FontAwesomeIcon icon={['fas', 'file-alt']} />All Notes</li>
-            <li><span className="fa-li"><FontAwesomeIcon icon={['fas', 'caret-right']} /></span><FontAwesomeIcon icon={['fas', 'star']} />Important</li>
-            <li><span className="fa-li"><FontAwesomeIcon icon={['fas', 'caret-right']} /></span><FontAwesomeIcon icon={['fas', 'folder']} />Folders</li>
-            <li><span className="fa-li"><FontAwesomeIcon icon={['fas', 'caret-right']} /></span><FontAwesomeIcon icon={['fas', 'user-friends']} />Shared with Me</li>
+            <li><span className="fa-li"><i className=""></i></span><FontAwesomeIcon icon={['fas', 'file-alt']} className="sidenav-icon"/>All Notes</li>
+            <li><span className="fa-li"><FontAwesomeIcon icon={['fas', 'caret-right']} className="sidenav-icon"/></span><FontAwesomeIcon icon={['fas', 'star']} className="sidenav-icon"/>Important</li>
+            <li><span className="fa-li"><FontAwesomeIcon icon={['fas', 'caret-right']} className="sidenav-icon"/></span><FontAwesomeIcon icon={['fas', 'folder']} className="sidenav-icon"/>Folders</li>
+            <li><span className="fa-li"><FontAwesomeIcon icon={['fas', 'caret-right']} className="sidenav-icon"/></span><FontAwesomeIcon icon={['fas', 'user-friends']} className="sidenav-icon"/>Shared with Me</li>
           </ul>
         </div>
 
         <div className="Workspaces">
           <h2>Workspaces</h2>
           <ul className="Workspaces_list fa-ul">
-            <li><span className="fa-li"><i className=""></i></span><FontAwesomeIcon icon={['fas', 'briefcase']} />Work</li>
-            <li><span className="fa-li"><i className=""></i></span><FontAwesomeIcon icon={['fas', 'chalkboard-teacher']} />School</li>
-            <li><span className="fa-li"><i className=""></i></span><FontAwesomeIcon icon={['fas', 'user']} />Personal</li>
+            <li><span className="fa-li"><i className=""></i></span><FontAwesomeIcon icon={['fas', 'briefcase']} className="sidenav-icon"/>Work</li>
+            <li><span className="fa-li"><i className=""></i></span><FontAwesomeIcon icon={['fas', 'chalkboard-teacher']} className="sidenav-icon"/>School</li>
+            <li><span className="fa-li"><i className=""></i></span><FontAwesomeIcon icon={['fas', 'user']} className="sidenav-icon"/>Personal</li>
           </ul>
         </div>
 
         <div className="Misc">
           <ul className="Misc_list fa-ul">
-            <li><FontAwesomeIcon icon={['fas', 'trash']} />Trash</li>
-            <li><FontAwesomeIcon icon={['fas', 'cog']} />Settings</li>
+            <li><FontAwesomeIcon icon={['fas', 'trash']} className="sidenav-icon"/>Trash</li>
+            <li><FontAwesomeIcon icon={['fas', 'cog']} className="sidenav-icon"/>Settings</li>
           </ul>
         </div>
      </aside>
