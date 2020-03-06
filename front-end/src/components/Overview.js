@@ -1,4 +1,5 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Overview extends React.Component {
   render () {
@@ -6,7 +7,7 @@ class Overview extends React.Component {
       <div className="Overview">
 
         <div className="selected">
-          <div className="menu-icon active"><i class="fas fa-bars"></i></div>
+          <div className="menu-icon active"><FontAwesomeIcon icon={['fas', 'bars']} /></div>
           <h2>All Notes</h2>
         </div>
 
