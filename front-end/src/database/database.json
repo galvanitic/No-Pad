@@ -1,0 +1,45 @@
+{
+  "Diego Perez": [
+    {
+      "email": "exmaple@example.com",
+      "password_encrypted": "password",
+
+      "notes": [
+        {
+          "test1": [
+            {
+              "title": "test",
+              "content": "This is a test!",
+              "folder": "",
+              "lastModified": ""
+            }
+          ],
+          "test2": [
+            {
+              "title": "test2",
+              "content": "This is a test!",
+              "folder": "",
+              "lastModified": ""
+            }
+          ],
+          "test3": [
+            {
+              "title": "test3",
+              "content": "This is a test!",
+              "folder": "",
+              "lastModified": ""
+            }
+          ]
+        }
+      ],
+
+      "metadata": [
+        {
+
+        }
+      ]
+
+    }
+  ]
+
+}
