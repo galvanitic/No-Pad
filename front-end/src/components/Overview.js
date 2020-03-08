@@ -16,11 +16,6 @@ class Overview extends React.Component {
           <h2>All Notes</h2>
         </div>
 
-        
-        {/* <div className="note_file"></div>
-        <div className="note_file"></div>
-        <div className="note_file"></div>
-        <div className="note_file"></div> */}
 
         {user_notes.map(({ title, content, lastModified }) => {
           return <NoteObj title={title} content={content} lastModified={lastModified} />
