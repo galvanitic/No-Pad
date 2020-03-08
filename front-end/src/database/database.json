@@ -1,45 +1,29 @@
 {
-  "Diego Perez": [
-    {
-      "email": "exmaple@example.com",
-      "password_encrypted": "password",
+  "DiegoPerez": {
+    "email": "exmaple@example.com",
+    "password_encrypted": "password",
 
-      "notes": [
-        {
-          "test1": [
-            {
-              "title": "test",
-              "content": "This is a test!",
-              "folder": "",
-              "lastModified": ""
-            }
-          ],
-          "test2": [
-            {
-              "title": "test2",
-              "content": "This is a test!",
-              "folder": "",
-              "lastModified": ""
-            }
-          ],
-          "test3": [
-            {
-              "title": "test3",
-              "content": "This is a test!",
-              "folder": "",
-              "lastModified": ""
-            }
-          ]
-        }
-      ],
+    "notes": [
+      {
+        "title": "Test1",
+        "content": "This is a test!",
+        "folder": "",
+        "lastModified": "3/7/2020"
+      },
+      {
+        "title": "Lorem Ipsum",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor nisl quis porttitor fringilla. Cras sed quam enim. Sed gravida ex ornare, varius tellus non, blandit ligula. Cras at lacinia lectus. Donec porta, dui non convallis maximus, nisl ex ullamcorper turpis, non varius nisl mauris in libero.",
+        "folder": "",
+        "lastModified": "3/7/2020"
+      }
+    ],
 
-      "metadata": [
-        {
+    "metadata": [
+      {
 
-        }
-      ]
+      }
+    ]
 
-    }
-  ]
+  }
 
 }
