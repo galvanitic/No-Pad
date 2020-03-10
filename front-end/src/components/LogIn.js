@@ -25,7 +25,7 @@ class LogIn extends React.Component {
             <label for="mail">Email Adress</label>
             <input type="email" id="mail" name="user_email" />
 
-            <label for="password">Email Adress</label>
+            <label for="password">Password</label>
             <input type="password" id="password" name="user_password" />
           </form>
 
