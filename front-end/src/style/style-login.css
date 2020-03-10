@@ -157,7 +157,9 @@ button {
   background-color: rgb(240, 240, 240);
 }
 
-
+input {
+  width: 100%;
+}
 
 /****************************************
             CSS Media Queries
