@@ -9,7 +9,7 @@ class LogIn extends React.Component {
           <h2>Log In</h2>
           <h4>Sign into your account to continue</h4>
 
-          <div className="form-section" id='email-container'>
+          {/* <div className="form-section" id='email-container'>
             <h5>Email Address</h5>
             <div className="input-field" id='email-field'></div>
           </div>
@@ -19,7 +19,15 @@ class LogIn extends React.Component {
             <div className="input-field" id='password-field'></div>
           </div>
 
-          <div id="signin"><h3>Sign In</h3></div>
+          <div id="signin"><h3>Sign In</h3></div> */}
+
+          <form action="/" method="post">
+            <label for="mail">Email Adress</label>
+            <input type="email" id="mail" name="user_email" />
+
+            <label for="password">Email Adress</label>
+            <input type="password" id="password" name="user_password" />
+          </form>
 
           <h5 id="createAccount-text">Not Registered? <span>Create Account</span></h5>
         </div>
