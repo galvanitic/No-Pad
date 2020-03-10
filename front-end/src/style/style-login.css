@@ -191,7 +191,29 @@ input, textarea {
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.4);
 
+  transition: all 0.25s;
   box-sizing: border-box;
+}
+input:focus, textarea:focus {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+button {
+  width: 30%;
+  height: 40px;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  margin: 30px 0;
+  border: none !important;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: rgb(230, 230, 230);
+  font-size: 1em;
+
+  transition: all 0.25s;
 }
 
 /****************************************
