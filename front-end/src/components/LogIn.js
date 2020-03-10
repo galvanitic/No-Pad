@@ -27,6 +27,8 @@ class LogIn extends React.Component {
 
             <label for="password">Password</label>
             <input type="password" id="password" name="user_password" />
+
+            <button type="submit">Sign In</button>
           </form>
 
           <h5 id="createAccount-text">Not Registered? <span>Create Account</span></h5>
