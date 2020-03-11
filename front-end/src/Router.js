@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Switch, Route, Redirect } from "react-router";
 import LogIn from './components/LogIn';
 import Dashboard from './components/Dashboard';
@@ -20,10 +20,17 @@ const ProtectedRoute = ({component: Component, ...rest}) => {
 }
 
 const Router = () => {
+
+  const [email, setEmail] = useState("");
+
   return(
     <Switch>
-      <Route path="/login" component={LogIn} />
-      <ProtectedRoute path="/dash" component={Dashboard} />
+      <Route path="/login">
+        <LogIn email={email} setEmail={setEmail}/>
+      </Route>
+      <ProtectedRoute path="/dash">
+        <Dashboard email={email}/>
+      </ProtectedRoute>
       
       <Redirect path="*" to="/login"/>
     </Switch>
