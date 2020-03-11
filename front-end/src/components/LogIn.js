@@ -40,7 +40,7 @@ const LogIn = ({ email, setEmail }) => {
         <div id="signin"><h3>Sign In</h3></div> */}
 
         <form>
-          <label for="mail">Email Adress</label>
+          <label for="mail">Email Address</label>
           <input type="email" id="mail" name="user_email" value={email} onChange={handleEmailChange}/>
 
           <label for="password">Password</label>
