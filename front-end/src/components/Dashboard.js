@@ -9,7 +9,7 @@ const Dashboard = ( { email } ) => {
 
   return(
     <body>
-      <SideNav className='sidenav' />
+      <SideNav className='sidenav' email={email}/>
       <div className='grid-container'>
         <Overview className='Overview' email={email}/>
         <Note className='Note' />
