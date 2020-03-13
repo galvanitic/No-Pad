@@ -2,14 +2,20 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom'
 import '../style/style-login.css'
 
-const LogIn = ({ email, setEmail }) => {
+const LogIn = ({ email, setEmail, password, setPassword }) => {
 
   const [hasSubmitted, setHasSubmitted] = useState(false)
 
   const handleEmailChange = (e) => {
-    const newEmail = e.target.value
+    const newEmail = e.target.value;
 
-    setEmail(newEmail)
+    setEmail(newEmail);
+  }
+
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
+
+    setPassword(newPassword);
   }
 
   const handleButtonClick = (e) => {
@@ -17,7 +23,7 @@ const LogIn = ({ email, setEmail }) => {
     setHasSubmitted(true)
   }
 
-  if(hasSubmitted){
+  if (hasSubmitted){
     return <Redirect to='/dash'/>
   }
 
@@ -44,7 +50,7 @@ const LogIn = ({ email, setEmail }) => {
           <input type="email" id="mail" name="user_email" value={email} onChange={handleEmailChange}/>
 
           <label for="password">Password</label>
-          <input type="password" id="password" name="user_password" />
+          <input type="password" id="password" name="user_password" value={password} onChange={handlePasswordChange}/>
 
           <button type="submit" onClick={handleButtonClick}>Sign In</button>
         </form>
