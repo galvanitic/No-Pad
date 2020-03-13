@@ -22,11 +22,12 @@ const ProtectedRoute = ({component: Component, ...rest}) => {
 const Router = () => {
 
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   return(
     <Switch>
       <Route path="/login">
-        <LogIn email={email} setEmail={setEmail}/>
+        <LogIn email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>
       </Route>
       <ProtectedRoute path="/dash">
         <Dashboard email={email}/>
