@@ -13,7 +13,6 @@ var AuthService_data = {
 
 const AuthService = (login_submitted, email, password) => {
 
-
   if (login_submitted) {
     const user_data = data[email];
     console.log("User Password_Encrypted: " + user_data.password_encrypted);
