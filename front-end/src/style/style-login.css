@@ -215,6 +215,17 @@ button {
 
   transition: all 0.25s;
   box-sizing: border-box;
+  cursor: pointer;
+}
+
+button:not(.disabled):hover{
+  background-color: rgb(230, 230, 230);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+button.disabled {
+  color: rgb(117, 117, 117);
+  cursor: default;
 }
 
 /****************************************
@@ -236,4 +247,24 @@ button {
     -ms-backdrop-filter: blur(4px);
     background-color: rgba(0, 0, 0, 0.212);
   }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
+}
+
+.login-error-mess {
+  color: rgb(228, 13, 49);
+  margin: 5px 0 0 5px;
+  width: 45%;
+  padding: 2px 0;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.6);
+  text-align: center;
+  user-select: none;
+  animation: fadeIn 0.25s ease;
 }
