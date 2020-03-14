@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom'
 import '../style/style-login.css'
 
-const LogIn = ({ email, setEmail, password, setPassword, login_submitted, setLogin_submitted }) => {
+const LogIn = ({ email, setEmail, password, setPassword, setLogin_submitted }) => {
 
-  const [hasSubmitted, setHasSubmitted] = useState(false)
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const handleEmailChange = (e) => {
     const newEmail = e.target.value;
@@ -19,14 +19,17 @@ const LogIn = ({ email, setEmail, password, setPassword, login_submitted, setLog
   }
 
   const handleButtonClick = (e) => {
-    e.preventDefault()
-    setHasSubmitted(true)
+    e.preventDefault();
+    setHasSubmitted(true);
+    setLogin_submitted(true);
   }
 
-  if (hasSubmitted) {
-    setLogin_submitted(true);
-    return <Redirect to='/dash'/>
-  }
+  // Security Issue
+  // if (hasSubmitted) {
+    // Warning: Cannot update a component from inside the function body of a different component.
+    // setLogin_submitted(true);
+    // return <Redirect to='/dash'/>
+  // }
 
   return(
     <div id="login-container">
@@ -47,10 +50,10 @@ const LogIn = ({ email, setEmail, password, setPassword, login_submitted, setLog
         <div id="signin"><h3>Sign In</h3></div> */}
 
         <form>
-          <label for="mail">Email Address</label>
+          <label htmlFor="mail">Email Address</label>
           <input type="email" id="mail" name="user_email" value={email} onChange={handleEmailChange}/>
 
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <input type="password" id="password" name="user_password" value={password} onChange={handlePasswordChange}/>
 
           <button type="submit" onClick={handleButtonClick}>Sign In</button>

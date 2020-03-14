@@ -7,11 +7,13 @@ import data from './database/database.json';
 
 var bcrypt = require('bcryptjs');
 
-const AuthService_data = {
+var AuthService_data = {
   isAuthenticated: false,
 }
 
 const AuthService = (login_submitted, email, password) => {
+
+
   if (login_submitted) {
     const user_data = data[email];
     console.log("User Password_Encrypted: " + user_data.password_encrypted);
@@ -34,7 +36,7 @@ const AuthService = (login_submitted, email, password) => {
 }
 
 const checkAuth = () => {
-  return false;
+  return true;
 }
 
 const ProtectedRoute = ({component: Component, ...rest}) => {
@@ -55,18 +57,23 @@ const Router = () => {
   const [password, setPassword] = useState("");
   const [login_submitted, setLogin_submitted] = useState(false);
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   AuthService(login_submitted, email, password);
+  //   console.log("login_submitted: " + login_submitted);
+  // },[login_submitted]);
+
+  if (login_submitted) {
     AuthService(login_submitted, email, password);
     console.log("login_submitted: " + login_submitted);
-  },[login_submitted]);
+  }
 
   return(
     <Switch>
       <Route path="/login">
         <LogIn 
-        email={email}                     setEmail={setEmail} 
-        password={password}               setPassword={setPassword} 
-        login_submitted={login_submitted} setLogin_submitted={setLogin_submitted}/>
+        email={email}       setEmail={setEmail} 
+        password={password} setPassword={setPassword} 
+                            setLogin_submitted={setLogin_submitted}/>
       </Route>
       <ProtectedRoute path="/dash">
         <Dashboard email={email}/>
