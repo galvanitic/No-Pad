@@ -2,19 +2,15 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import portrait from '../img/portrait.jpg'
 
-import data from '../database/database.json';
-
-const SideNav = ( { email } ) => {
-
-  const user_data = data[email];
+const SideNav = ( { user } ) => {
   
   return(
     <aside className="sidenav">
       <div className="user">
         <img src={portrait} alt="Portrait of me" />
         <div className="user-text">
-          <span id="name">{user_data.name}</span>
-          <span id="email">{email}</span>
+          <span id="name">{user.name}</span>
+          <span id="email">{user.email}</span>
         </div>
       </div>
 

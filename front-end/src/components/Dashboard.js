@@ -5,16 +5,17 @@ import Overview from './Overview';
 // import '../manage';
 import '../style/style-dashboard.css';
 
-const Dashboard = ( { email } ) => {
+const Dashboard = ( { user } ) => {
 
+  // Removed <body> since there is already a body in the root HTML document
   return(
-    <body>
-      <SideNav className='sidenav' email={email}/>
+    <>
+      <SideNav className='sidenav' user={user}/>
       <div className='grid-container'>
-        <Overview className='Overview' email={email}/>
+        <Overview className='Overview' user={user}/>
         <Note className='Note' />
       </div>
-    </body>
+    </>
   )
   
 }
