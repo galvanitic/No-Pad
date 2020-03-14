@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom'
 import '../style/style-login.css'
 
-const LogIn = ({ email, setEmail, password, setPassword }) => {
+const LogIn = ({ email, setEmail, password, setPassword, login_submitted, setLogin_submitted }) => {
 
   const [hasSubmitted, setHasSubmitted] = useState(false)
 
@@ -23,7 +23,8 @@ const LogIn = ({ email, setEmail, password, setPassword }) => {
     setHasSubmitted(true)
   }
 
-  if (hasSubmitted){
+  if (hasSubmitted) {
+    setLogin_submitted(true);
     return <Redirect to='/dash'/>
   }
 

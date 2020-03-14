@@ -1,7 +1,7 @@
 {
   "diego@gmail.com": {
     "name": "Diego Perez",
-    "password_encrypted": "password",
+    "password_encrypted": "$2a$10$OEeE7hXRPuj.1sl2Y7AsJedAyGJjDBjkX8B8evrZCUffB547EnQdi",
 
     "notes": [
       {
