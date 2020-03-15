@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { Switch, Route, Redirect } from "react-router";
 import LogIn from './components/LogIn';
+import CreateAccount from './components/CreateAccount'
 import Dashboard from './components/Dashboard';
 
 import { getUserByEmail, isUserPasswordCorrect } from './database/db_utils'
@@ -50,6 +51,9 @@ const Router = () => {
           isEmailWrong={isEmailWrong}
           isPasswordWrong={isPasswordWrong}
         />
+      </Route>
+      <Route path="/create-account">
+        <CreateAccount/>
       </Route>
       {!isAuthorized && <Redirect to="/login"/>}
       <Route path="/dash">
