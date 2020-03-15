@@ -90,7 +90,7 @@ const LogIn = ({
           </button>
         </form>
 
-        <h5 id="createAccount-text">Not Registered? <span>Create Account</span></h5>
+        <h5 id="createAccount-text">Not Registered? <span><a href="#">Create Account</a></span></h5>
       </div>
     </div>
   )
