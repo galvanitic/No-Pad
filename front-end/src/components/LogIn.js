@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Redirect } from 'react-router-dom'
+import { Redirect, NavLink } from 'react-router-dom'
 import '../style/style-login.css'
 
 const LogIn = ({
@@ -90,7 +90,7 @@ const LogIn = ({
           </button>
         </form>
 
-        <h5 id="createAccount-text">Not Registered? <span><a href="#">Create Account</a></span></h5>
+        <h5 id="createAccount-text">Not Registered? <span><NavLink to="/create-account" className="create-account-link">Create Account</NavLink></span></h5>
       </div>
     </div>
   )
