@@ -30,7 +30,7 @@ const Router = () => {
       return
     }
 
-    //this is where the bycrpt comparison happens
+    // this is where the bycrpt comparison happens
     if(!isUserPasswordCorrect(existingUser, password)){
       setIsPasswordWrong(true)
       return
