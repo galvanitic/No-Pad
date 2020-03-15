@@ -3,28 +3,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import NoteObj from './NoteObj'
 
-import data from '../database/database.json';
-const user_notes = data.DiegoPerez.notes;
+const Overview = ( { user } ) => {
 
-class Overview extends React.Component {
-  render () {
-    return(
-      <div className="Overview">
+  return(
+    <div className="Overview">
 
-        <div className="selected">
-          <div className="menu-icon active"><FontAwesomeIcon icon={['fas', 'bars']} /></div>
-          <h2>All Notes</h2>
-        </div>
-
-
-        {user_notes.map(({ title, content, lastModified }) => {
-          return <NoteObj title={title} content={content} lastModified={lastModified} />
-        })}
-        
-
+      <div className="selected">
+        <div className="menu-icon active"><FontAwesomeIcon icon={['fas', 'bars']} /></div>
+        <h2>All Notes</h2>
       </div>
-    )
-  }
+
+
+      {user.notes.map(({ title, content, lastModified }, index) => {
+        return <NoteObj key={`note-object-${index}`} title={title} content={content} lastModified={lastModified} />
+      })}
+      
+
+    </div>
+  )
+  
 }
 
 export default Overview;
