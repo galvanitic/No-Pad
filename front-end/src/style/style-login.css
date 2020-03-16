@@ -137,10 +137,11 @@ input {
 #login-form #createAccount-text {
   color: rgb(240, 240, 240);
 }
-#login-form #createAccount-text > span {
+#login-form #createAccount-text > span a {
   color: rgb(240, 240, 240);
+  text-decoration: none;
 }
-#login-form #createAccount-text > span:hover {
+#login-form #createAccount-text > span:hover a {
   color: rgb(255, 255, 255);
 }
 
