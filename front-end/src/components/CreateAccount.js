@@ -49,7 +49,7 @@ const CreateAccount = ({
 
   if(isAccountValid){
     console.log("Account Created")
-    // Create a new entry in the database.json file, stored in server/database
+    // Create a new entry in the database.json file, stored in server/database 
     // Hash password
     // Authenticate user and redirect to dashboard with return <Redirect to="/dash"/>
 
