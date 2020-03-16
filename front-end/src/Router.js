@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { Switch, Route, Redirect } from "react-router";
 import LogIn from './components/LogIn';
+import CreateAccount from './components/CreateAccount'
 import Dashboard from './components/Dashboard';
 
 import { getUserByEmail, isUserPasswordCorrect } from './database/db_utils'
@@ -13,6 +14,10 @@ const Router = () => {
   const [isAuthorized, setIsAuthorized] = useState(false)
   const [isEmailWrong, setIsEmailWrong] = useState(false)
   const [isPasswordWrong, setIsPasswordWrong] = useState(false)
+
+  const [isAccountValid, setIsAccountValid] = useState(false)
+  const [isEmailUnvalid, setIsEmailUnvalid] = useState(false)
+  const [arePasswordsDifferent, setArePasswordsDifferent] = useState(false)
 
   // useCallback creates a function that you can use normally,
   // but it is optimized for when you want to define a function inside a React component using state values/setters
@@ -41,6 +46,31 @@ const Router = () => {
     setUser(existingUser)
   }, [setIsEmailWrong, setIsPasswordWrong, setIsAuthorized, setUser])
 
+  const checkCreateAccount = useCallback((email, password, confirmPassword) => {
+    // Prevent Errors upon restart of the form
+    setIsEmailUnvalid(false)
+    setArePasswordsDifferent(false)
+
+    const existingUser = getUserByEmail(email)
+
+    // getUserByEmail returns undefined if no user was found
+    if(existingUser){
+      setIsEmailUnvalid(true)
+      return
+    }
+
+    // Checks is both passwords are different otherwise return which cancels action
+    if(password !== confirmPassword){
+      setArePasswordsDifferent(true)
+      return
+    }
+
+    // function only gets to this point if the user doesn't exist and the passwords match
+    setIsAccountValid(true)
+    // console.log("Account Valid")
+
+  }, [setIsEmailUnvalid, setArePasswordsDifferent, setIsAccountValid])
+
   return(
     <Switch>
       <Route path="/login">
@@ -49,6 +79,14 @@ const Router = () => {
           isAuthorized={isAuthorized}
           isEmailWrong={isEmailWrong}
           isPasswordWrong={isPasswordWrong}
+        />
+      </Route>
+      <Route path="/create-account">
+        <CreateAccount
+          checkCreateAccount={checkCreateAccount}
+          isAccountValid={isAccountValid}
+          isEmailUnvalid={isEmailUnvalid}
+          arePasswordsDifferent={arePasswordsDifferent}
         />
       </Route>
       {!isAuthorized && <Redirect to="/login"/>}
