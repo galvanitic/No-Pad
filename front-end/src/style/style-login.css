@@ -199,6 +199,7 @@ input:focus, textarea:focus {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
+/* Need to change this default behavior */
 button {
   width: 30%;
   height: 40px;
