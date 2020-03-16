@@ -70,7 +70,7 @@ const Router = () => {
     // function only gets to this point if the user doesn't exist and the passwords match
     if (isEmailValid && arePasswordsSame) {
       setIsAccountValid(true)
-      // console.log("Account Valid")
+      console.log("Account Valid")
     } else {
       return
     }
