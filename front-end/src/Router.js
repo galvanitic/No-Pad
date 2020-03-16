@@ -15,6 +15,10 @@ const Router = () => {
   const [isEmailWrong, setIsEmailWrong] = useState(false)
   const [isPasswordWrong, setIsPasswordWrong] = useState(false)
 
+  const [isAccountValid, setIsAccountValid] = useState(false)
+  const [isEmailValid, setIsEmailValid] = useState(false)
+  const [arePasswordsSame, setArePasswordsSame] = useState(false)
+
   // useCallback creates a function that you can use normally,
   // but it is optimized for when you want to define a function inside a React component using state values/setters
   // There is another example with more explanation in the Login component
@@ -42,6 +46,37 @@ const Router = () => {
     setUser(existingUser)
   }, [setIsEmailWrong, setIsPasswordWrong, setIsAuthorized, setUser])
 
+  const checkCreateAccount = useCallback((email, password, confirmPassword) => {
+    // Prevent Errors
+    setIsEmailValid(false)
+    setArePasswordsSame(false)
+
+    const existingUser = getUserByEmail(email)
+
+    // getUserByEmail returns undefined if no user was found
+    if(!existingUser){
+      setIsEmailValid(true)
+    } else {
+      // console.log("Email NOT Valid")
+    }
+
+    // Checks is both passwords are the same otherwise return which cancels action
+    if(password === confirmPassword){
+      setArePasswordsSame(true)
+    } else {
+      // console.log("Passwords DON'T Match")
+    }
+
+    // function only gets to this point if the user doesn't exist and the passwords match
+    if (isEmailValid && arePasswordsSame) {
+      setIsAccountValid(true)
+      // console.log("Account Valid")
+    } else {
+      return
+    }
+
+  }, [isEmailValid, setIsEmailValid, arePasswordsSame, setArePasswordsSame, setIsAccountValid])
+
   return(
     <Switch>
       <Route path="/login">
@@ -53,7 +88,12 @@ const Router = () => {
         />
       </Route>
       <Route path="/create-account">
-        <CreateAccount/>
+        <CreateAccount
+          checkCreateAccount={checkCreateAccount}
+          isAccountValid={isAccountValid}
+          isEmailValid={isEmailValid}
+          arePasswordsSame={arePasswordsSame}
+        />
       </Route>
       {!isAuthorized && <Redirect to="/login"/>}
       <Route path="/dash">
