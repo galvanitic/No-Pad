@@ -4,8 +4,8 @@ import '../style/style-create-account.css'
 const CreateAccount = ({
   checkCreateAccount,
   isAccountValid,
-  isEmailValid,
-  arePasswordsSame
+  isEmailUnvalid,
+  arePasswordsDifferent
 }) => {
 
   // now that we have the checkCreateAccount function, the email and password states can live here
@@ -13,7 +13,6 @@ const CreateAccount = ({
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
   const [isInputFilled, setIsInputFilled] = useState(false)
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false)
 
   const handleEmailChange = (e) => {
     const newEmail = e.target.value;
@@ -36,7 +35,6 @@ const CreateAccount = ({
   const handleButtonClick = useCallback((e) => {
     e.preventDefault();
     if(isInputFilled){
-      setIsFormSubmitted(true)
       checkCreateAccount(email, password, confirmPassword);
     }
   }, [email, password, confirmPassword, isInputFilled, checkCreateAccount])
@@ -66,14 +64,14 @@ const CreateAccount = ({
         <form>
           <label htmlFor="mail">Email Address</label>
           <input type="email" id="mail" name="user_email" value={email} onChange={handleEmailChange}/>
-          {(!isEmailValid && isFormSubmitted) && <div className="login-error-mess">Email is not Valid</div>}
+          {(isEmailUnvalid) && <div className="login-error-mess">Email is not Valid</div>}
 
           <label htmlFor="password">Password</label>
           <input type="password" id="password" name="user_password" value={password} onChange={handlePasswordChange}/>
 
           <label htmlFor="confirm-password">Confirm Password</label>
           <input type="password" id="confirm-password" name="confirm-user_password" value={confirmPassword} onChange={handleConfirmPasswordChange}/>
-          {(!arePasswordsSame && isFormSubmitted) && <div className="login-error-mess">Passwords Don't Match</div>}
+          {(arePasswordsDifferent) && <div className="login-error-mess">Passwords Don't Match</div>}
 
           <button 
           type="submit"
