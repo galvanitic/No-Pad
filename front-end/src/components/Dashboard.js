@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SideNav from './SideNav';
 import Note from './Note';
 import Overview from './Overview';
@@ -6,6 +6,12 @@ import Overview from './Overview';
 import '../style/style-dashboard.css';
 
 const Dashboard = ( { user } ) => {
+
+  const [noteId, setNoteId] = useState(null)
+
+  const handleNoteObjSelection = () => {
+    
+  }
 
   // Removed <body> since there is already a body in the root HTML document
   return(
