@@ -76,7 +76,7 @@ const CreateAccount = ({
           <button 
           type="submit"
           onClick={handleButtonClick}
-          className={!isInputFilled ? "disabled" : ""}>
+          className={!isInputFilled ? "disabled button_form" : "button_form"}>
             Create Account
           </button>
         </form>
