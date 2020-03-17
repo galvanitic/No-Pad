@@ -1,15 +1,17 @@
 import React from 'react';
 
 const NoteObj = ({ 
-  title, content, lastModified 
+  title, id, content, lastModified, handleNoteObjSelection 
 }) => (
 
-  <div className="NoteObj">
-    {/* <h2>{title}</h2>
+  <div className="NoteObj" onClick={event => {
+    handleNoteObjSelection(id)
+  }}>
+    <h2>{title}</h2>
     <p>{content}</p>
-    <h6>{lastModified}</h6> */}
+    <h6>{lastModified}</h6>
 
-    <button
+    {/* <button
     type="submit"
     onClick={handleNoteObjSelection}
     className="NoteObj_Button"
@@ -17,7 +19,7 @@ const NoteObj = ({
       <h2>{title}</h2>
       <p>{content}</p>
       <h6>{lastModified}</h6>
-    </button>
+    </button> */}
 
   </div>
 )
