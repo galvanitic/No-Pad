@@ -8,7 +8,8 @@ import Dashboard from './components/Dashboard';
 
 import { 
   getUserByEmail,
-  isUserPasswordCorrect
+  isUserPasswordCorrect,
+  insertNewUser
 } from './utils/localStorageUtils'
 
 
@@ -52,7 +53,7 @@ const Router = () => {
     setUser(existingUser)
   }, [setIsEmailWrong, setIsPasswordWrong, setIsAuthorized, setUser])
 
-  const checkCreateAccount = useCallback((email, password, confirmPassword) => {
+  const checkCreateAccount = useCallback((name, email, password, confirmPassword) => {
     // Prevent Errors upon restart of the form
     setIsEmailUnvalid(false)
     setArePasswordsDifferent(false)
@@ -73,6 +74,7 @@ const Router = () => {
 
     // function only gets to this point if the user doesn't exist and the passwords match
     setIsAccountValid(true)
+    setUser(insertNewUser(name, email, password))
     setIsAuthorized(true)
     // console.log("Account Valid")
 
