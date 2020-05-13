@@ -4,7 +4,13 @@ import LogIn from './components/LogIn';
 import CreateAccount from './components/CreateAccount'
 import Dashboard from './components/Dashboard';
 
-import { getUserByEmail, isUserPasswordCorrect } from './database/db_utils'
+// import { getUserByEmail, isUserPasswordCorrect } from './database/db_utils'
+
+import { 
+  getUserByEmail,
+  isUserPasswordCorrect
+} from './utils/localStorageUtils'
+
 
 const Router = () => {
 
@@ -67,6 +73,7 @@ const Router = () => {
 
     // function only gets to this point if the user doesn't exist and the passwords match
     setIsAccountValid(true)
+    setIsAuthorized(true)
     // console.log("Account Valid")
 
   }, [setIsEmailUnvalid, setArePasswordsDifferent, setIsAccountValid])
@@ -87,6 +94,7 @@ const Router = () => {
           isAccountValid={isAccountValid}
           isEmailUnvalid={isEmailUnvalid}
           arePasswordsDifferent={arePasswordsDifferent}
+          isAuthorized={isAuthorized}
         />
       </Route>
       {!isAuthorized && <Redirect to="/login"/>}

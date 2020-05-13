@@ -1,18 +1,28 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Redirect } from 'react-router-dom'
 import '../style/style-create-account.css'
+import { insertNewUser } from '../utils/localStorageUtils'
 
 const CreateAccount = ({
   checkCreateAccount,
   isAccountValid,
   isEmailUnvalid,
-  arePasswordsDifferent
+  arePasswordsDifferent,
+  isAuthorized
 }) => {
 
   // now that we have the checkCreateAccount function, the email and password states can live here
+  const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
   const [isInputFilled, setIsInputFilled] = useState(false)
+
+  const handleNameChange = (e) => {
+    const newName = e.target.value;
+
+    setName(newName);
+  }
 
   const handleEmailChange = (e) => {
     const newEmail = e.target.value;
@@ -40,19 +50,23 @@ const CreateAccount = ({
   }, [email, password, confirmPassword, isInputFilled, checkCreateAccount])
 
   useEffect(() => {
-    if(email === "" || password === "" || confirmPassword === ""){
+    if(name === "" || email === "" || password === "" || confirmPassword === ""){
       setIsInputFilled(false)
     } else {
       setIsInputFilled(true)
     }
-  }, [email, password, confirmPassword, setIsInputFilled])
+  }, [name, email, password, confirmPassword, setIsInputFilled])
 
   if(isAccountValid){
+    insertNewUser(name, email, password);
     console.log("Account Created")
     // Create a new entry in the database.json file, stored in server/database 
     // Hash password
     // Authenticate user and redirect to dashboard with return <Redirect to="/dash"/>
+  }
 
+  if(isAuthorized){
+    return <Redirect to="/dash"/>
   }
 
   return(
@@ -62,6 +76,9 @@ const CreateAccount = ({
         <h4>Create an Account to continue</h4>
         
         <form>
+          <label htmlFor="name">Name</label>
+          <input type="text" id="name" name="user_name" value={name} onChange={handleNameChange}/>
+
           <label htmlFor="mail">Email Address</label>
           <input type="email" id="mail" name="user_email" value={email} onChange={handleEmailChange}/>
           {(isEmailUnvalid) && <div className="login-error-mess">Email is not Valid</div>}
