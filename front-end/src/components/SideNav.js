@@ -1,8 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import portrait from '../img/portrait.jpg'
+import { findByLabelText } from '@testing-library/react';
 
 const SideNav = ( { user } ) => {
+
+  const [newNoteMenuOpen, setNewNoteMenuOpen] = useState(false)
+
+  const openNewNoteMenu = () => {
+    setNewNoteMenuOpen(true)
+  }
+  const closeNewNoteMenu = () => {
+    setNewNoteMenuOpen(false)
+  }
+
+  const [noteName, setNoteName] = useState("")
+  const [isInputFilled, setIsInputFilled] = useState(false)
+
+  const handleNoteNameChange = (e) => {
+    const newNoteName = e.target.value
+
+    setNoteName(newNoteName)
+  }
   
   return(
     <aside className="sidenav">
@@ -25,7 +44,7 @@ const SideNav = ( { user } ) => {
           <li><span className="fa-li"><i className="far fa-square"></i></span>Shared with Me</li>
         </ul> --> */}
 
-        <h1 id="NewNote"><span><FontAwesomeIcon id="NewNoteIcon" icon={['fas', 'plus-square']} className="sidenav-icon"/>New Note</span></h1>
+        <h1 id="NewNote" onClick={openNewNoteMenu}><span><FontAwesomeIcon id="NewNoteIcon" icon={['fas', 'plus-square']} className="sidenav-icon"/>New Note</span></h1>
 
         <ul className="QuickAccess_list fa-ul">
           <li><span className="fa-li"><i className=""></i></span><FontAwesomeIcon icon={['fas', 'file-alt']} className="sidenav-icon"/>All Notes</li>
@@ -50,6 +69,25 @@ const SideNav = ( { user } ) => {
           <li><FontAwesomeIcon icon={['fas', 'cog']} className="sidenav-icon"/>Settings</li>
         </ul>
       </div>
+
+      <div className="modal" id="newNoteModal" style={newNoteMenuOpen ? {display: "flex"} : {display: "none"}}>
+        <div className="modal-content">
+          <h1 onClick={closeNewNoteMenu}>New Note</h1>
+
+          <form>
+            <label htmlFor="noteName">Name</label>
+            <input type="text" id="noteName" name="noteName" value={noteName} onChange={handleNoteNameChange}/>
+
+            <button 
+            type="submit"
+            // onClick={handleButtonClick}
+            className={!isInputFilled ? "disabled button_form" : "button_form"}>
+            Create Account
+            </button>
+          </form>
+        </div>
+      </div>
+
     </aside>
   )
 
