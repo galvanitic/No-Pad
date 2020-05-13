@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Redirect } from 'react-router-dom'
+import { Redirect, NavLink } from 'react-router-dom'
 import '../style/style-create-account.css'
 
 const CreateAccount = ({
@@ -97,6 +97,7 @@ const CreateAccount = ({
           className={!isInputFilled ? "disabled button_form" : "button_form"}>
             Create Account
           </button>
+          <h5>Registered? <span><NavLink to="/login" className="create-account-link">Login</NavLink></span></h5>
         </form>
 
       </div>

@@ -236,6 +236,7 @@ button {
 ==================== */
 .grid-container {
   height: 100%;
+  width: 100%;
   /* Same as the Sidenav */
   margin-left: 250px;
   display: grid;
