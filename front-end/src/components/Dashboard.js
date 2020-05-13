@@ -7,20 +7,20 @@ import '../style/style-dashboard.css';
 
 const Dashboard = ( { user } ) => {
 
-  const [noteId, setNoteId] = useState(null)
+  // const [noteId, setNoteId] = useState(null)
 
-  const handleNoteObjSelection = useCallback((id) => {
-    setNoteId(id)
-    console.log(noteId)
-  }, [noteId, setNoteId])
+  // const handleNoteObjSelection = useCallback((id) => {
+  //   setNoteId(id)
+  //   console.log(noteId)
+  // }, [noteId, setNoteId])
 
   // Removed <body> since there is already a body in the root HTML document
   return(
     <>
       <SideNav className='sidenav' user={user}/>
       <div className='grid-container'>
-        <Overview className='Overview' user={user} handleNoteObjSelection={handleNoteObjSelection}/>
-        <Note className='Note' user={user} noteId={noteId}/>
+        <Overview className='Overview' user={user}/>
+        <Note className='Note' user={user}/>
       </div>
     </>
   )

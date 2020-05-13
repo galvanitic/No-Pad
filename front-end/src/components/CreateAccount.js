@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Redirect } from 'react-router-dom'
 import '../style/style-create-account.css'
-import { insertNewUser } from '../utils/localStorageUtils'
 
 const CreateAccount = ({
   checkCreateAccount,
@@ -17,6 +16,8 @@ const CreateAccount = ({
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
   const [isInputFilled, setIsInputFilled] = useState(false)
+
+  const [user, setUser] = useState("")
 
   const handleNameChange = (e) => {
     const newName = e.target.value;
@@ -45,9 +46,9 @@ const CreateAccount = ({
   const handleButtonClick = useCallback((e) => {
     e.preventDefault();
     if(isInputFilled){
-      checkCreateAccount(email, password, confirmPassword);
+      checkCreateAccount(name, email, password, confirmPassword);
     }
-  }, [email, password, confirmPassword, isInputFilled, checkCreateAccount])
+  }, [name, email, password, confirmPassword, isInputFilled, checkCreateAccount])
 
   useEffect(() => {
     if(name === "" || email === "" || password === "" || confirmPassword === ""){
@@ -58,9 +59,9 @@ const CreateAccount = ({
   }, [name, email, password, confirmPassword, setIsInputFilled])
 
   if(isAccountValid){
-    insertNewUser(name, email, password);
-    console.log("Account Created")
-    // Create a new entry in the database.json file, stored in server/database 
+    // console.log("Account Created")
+    // Note: this is now handled in checkCreateAccount()
+    // Create a new entry in the database.json file/local storage, stored in server/database 
     // Hash password
     // Authenticate user and redirect to dashboard with return <Redirect to="/dash"/>
   }
