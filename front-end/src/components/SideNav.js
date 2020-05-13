@@ -24,6 +24,9 @@ const SideNav = ( { user } ) => {
           <li><span className="fa-li"><i className="fas fa-folder"></i></span>Folders</li>
           <li><span className="fa-li"><i className="far fa-square"></i></span>Shared with Me</li>
         </ul> --> */}
+
+        <h1 id="NewNote"><span><FontAwesomeIcon id="NewNoteIcon" icon={['fas', 'plus-square']} className="sidenav-icon"/>New Note</span></h1>
+
         <ul className="QuickAccess_list fa-ul">
           <li><span className="fa-li"><i className=""></i></span><FontAwesomeIcon icon={['fas', 'file-alt']} className="sidenav-icon"/>All Notes</li>
           <li><span className="fa-li"><FontAwesomeIcon icon={['fas', 'caret-right']} className="sidenav-icon"/></span><FontAwesomeIcon icon={['fas', 'star']} className="sidenav-icon"/>Important</li>
