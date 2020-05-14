@@ -8,7 +8,8 @@ import {
   isUserPasswordCorrect,
   insertNewUser,
   getAllNotesForUser,
-  insertNewNoteForUser
+  insertNewNoteForUser,
+  updateNoteForUser
 } from './localStorageUtils'
 
 const existingUserObj = getUserByEmail(someEmailAddress) // same result as function in db_utils.js
@@ -143,4 +144,8 @@ export const insertNewNoteForUser = (userObj, noteTitle, noteContent, folder = "
   }
 
   setPartialLocalState({ [STATE_NOTES_KEY]: [...getAllNotes(), newNote] })
+}
+
+export const updateNoteForUser = (updatedNote) => {
+  setPartialLocalState({ [STATE_NOTES_KEY]: [...getAllNotes(), updatedNote] })
 }
