@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import portrait from '../img/portrait.jpg'
 import { findByLabelText } from '@testing-library/react';
+import { 
+  getAllNotesForUser,
+  insertNewNoteForUser
+} from '../utils/localStorageUtils'
 
 const SideNav = ( { user } ) => {
 
@@ -22,6 +26,22 @@ const SideNav = ( { user } ) => {
 
     setNoteName(newNoteName)
   }
+
+  useEffect(() => {
+    if(noteName === ""){
+      setIsInputFilled(false)
+    } else {
+      setIsInputFilled(true)
+    }
+  }, [noteName, setIsInputFilled])
+
+  const handleButtonClick = useCallback((e) => {
+    e.preventDefault();
+    if(isInputFilled){
+      insertNewNoteForUser(user, noteName, "")
+      closeNewNoteMenu()
+    }
+  }, [user, noteName, isInputFilled])
   
   return(
     <aside className="sidenav">
@@ -72,17 +92,24 @@ const SideNav = ( { user } ) => {
 
       <div className="modal" id="newNoteModal" style={newNoteMenuOpen ? {display: "flex"} : {display: "none"}}>
         <div className="modal-content">
-          <h1 onClick={closeNewNoteMenu}>New Note</h1>
+          <h1>New Note Setup</h1>
 
           <form className="newNoteForm">
-            <label htmlFor="noteName">Name</label>
+            <label htmlFor="noteName">Note Name</label>
             <input type="text" id="noteName" name="noteName" value={noteName} onChange={handleNoteNameChange}/>
 
             <button 
-            type="submit"
-            // onClick={handleButtonClick}
-            className={!isInputFilled ? "disabled button_form" : "button_form"}>
-            Create Account
+              type="submit"
+              onClick={handleButtonClick}
+              className={!isInputFilled ? "disabled button_form" : "button_form"}>
+              Create Note
+            </button>
+            <button 
+              type="button"
+              onClick={closeNewNoteMenu}
+              id="cancelNewNote"
+              className={"button_form"}>
+              Cancel
             </button>
           </form>
         </div>
