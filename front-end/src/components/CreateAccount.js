@@ -17,7 +17,7 @@ const CreateAccount = ({
   const [confirmPassword, setConfirmPassword] = useState("")
   const [isInputFilled, setIsInputFilled] = useState(false)
 
-  const [user, setUser] = useState("")
+  // const [user, setUser] = useState("")
 
   const handleNameChange = (e) => {
     const newName = e.target.value;

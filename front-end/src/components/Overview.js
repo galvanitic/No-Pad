@@ -2,7 +2,6 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import NoteObj from './NoteObj'
-import { getAllNotesForUser } from '../utils/localStorageUtils'
 
 const Overview = ( { user, notes } ) => {
 
