@@ -4,10 +4,11 @@ import Note from './Note';
 import Overview from './Overview';
 // import '../manage';
 import '../style/style-dashboard.css';
+import { getAllNotesForUser } from '../utils/localStorageUtils';
 
 const Dashboard = ( { user } ) => {
 
-  // const [noteId, setNoteId] = useState(null)
+  const [notes, setNotes] = useState(getAllNotesForUser(user))
 
   // const handleNoteObjSelection = useCallback((id) => {
   //   setNoteId(id)
@@ -17,9 +18,9 @@ const Dashboard = ( { user } ) => {
   // Removed <body> since there is already a body in the root HTML document
   return(
     <>
-      <SideNav className='sidenav' user={user}/>
+      <SideNav className='sidenav' user={user} notes={notes} setNotes={setNotes}/>
       <div className='grid-container'>
-        <Overview className='Overview' user={user}/>
+        <Overview className='Overview' user={user} notes={notes}/>
         <Note className='Note' user={user}/>
       </div>
     </>
