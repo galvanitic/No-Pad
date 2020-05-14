@@ -74,7 +74,7 @@ const SideNav = ( { user } ) => {
         <div className="modal-content">
           <h1 onClick={closeNewNoteMenu}>New Note</h1>
 
-          <form>
+          <form className="newNoteForm">
             <label htmlFor="noteName">Name</label>
             <input type="text" id="noteName" name="noteName" value={noteName} onChange={handleNoteNameChange}/>
 
