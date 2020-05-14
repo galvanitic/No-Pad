@@ -86,7 +86,7 @@ const getAllNotes = () => getLocalState()[STATE_NOTES_KEY]
 
 const _generateNewId = (idArr) => {
   if(idArr.length > 0){
-    return Math.max(...idArr)
+    return Math.max(...idArr) + 1
   }
   return 1
 }
