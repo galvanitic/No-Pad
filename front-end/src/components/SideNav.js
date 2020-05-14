@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import portrait from '../img/portrait.jpg'
+import defaultProfilePic from '../img/defaultProfilePicture.png'
 import { findByLabelText } from '@testing-library/react';
 import { 
   getAllNotesForUser,
   insertNewNoteForUser
 } from '../utils/localStorageUtils'
 
-const SideNav = ( { user } ) => {
+const SideNav = ( { user, notes, setNotes } ) => {
 
   const [newNoteMenuOpen, setNewNoteMenuOpen] = useState(false)
 
@@ -39,14 +39,15 @@ const SideNav = ( { user } ) => {
     e.preventDefault();
     if(isInputFilled){
       insertNewNoteForUser(user, noteName, "")
+      setNotes(getAllNotesForUser(user))
       closeNewNoteMenu()
     }
-  }, [user, noteName, isInputFilled])
+  }, [user, noteName, setNotes, isInputFilled])
   
   return(
     <aside className="sidenav">
       <div className="user">
-        <img src={portrait} alt="Portrait of me" />
+        <img src={defaultProfilePic} alt="Portrait of me" />
         <div className="user-text">
           <span id="name">{user.name}</span>
           <span id="email">{user.email}</span>
