@@ -4,9 +4,13 @@ import {
   updateNoteForUser
 } from '../utils/localStorageUtils'
 
-const Note = ( {user, note} ) => {
+const Note = ( {user, note, fetchLatestNotes } ) => {
 
-  const [noteContent, setNoteContent] = useState((note !== null) ? note.content : "")
+  const [noteContent, setNoteContent] = useState("")
+
+  useEffect(() => {
+    note !== null && setNoteContent(note.content)
+  }, [note])
 
   const handleNoteContentChange = (e) => {
     const newNoteContent = e.target.value
@@ -15,17 +19,15 @@ const Note = ( {user, note} ) => {
 
   const updateNote = useCallback((e) => {
     e.preventDefault();
-    note.content = noteContent
-    updateNoteForUser(note)
-    console.log("Note Updated")
-  }, [note])
+    updateNoteForUser({ ...note, content: noteContent })
+    fetchLatestNotes()
+  }, [note, noteContent, fetchLatestNotes])
 
   return(
     <div className="Note">
       <h2>{(note !== null) ? note.title : ""}</h2>
       {(note !== null) ? <textarea value={noteContent} onChange={handleNoteContentChange}></textarea> : ""}
       {(note !== null) ? <button type="submit" onClick={updateNote} className="button_form">Submit</button> : ""}
-
     </div>
   )
   
