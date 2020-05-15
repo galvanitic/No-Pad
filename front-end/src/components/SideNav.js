@@ -15,6 +15,7 @@ const SideNav = ( { user, notes, setNotes } ) => {
     setNewNoteMenuOpen(true)
   }
   const closeNewNoteMenu = () => {
+    setNoteName("")
     setNewNoteMenuOpen(false)
   }
 
