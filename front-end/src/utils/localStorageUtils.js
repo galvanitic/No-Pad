@@ -32,6 +32,7 @@ You don't actually have to directly set or use IDs for users or notes directly. 
 */
 
 import bcrypt from 'bcryptjs'
+import {v4 as uuid} from 'uuid'
 
 // It's best to save re-used strings as constants
 // Using repeated plain strings in multiple places is called "using magic strings", which you should avoid.
@@ -85,10 +86,11 @@ const getAllUsers = () => getLocalState()[STATE_USERS_KEY]
 const getAllNotes = () => getLocalState()[STATE_NOTES_KEY]
 
 const _generateNewId = (idArr) => {
-  if(idArr.length > 0){
-    return Math.max(...idArr) + 1
-  }
-  return 1
+  return uuid()
+  // if(idArr.length > 0){
+  //   // return Math.max(...idArr) + 1
+  // }
+  // return 1
 }
 
 const generateNewUserId = () => {
