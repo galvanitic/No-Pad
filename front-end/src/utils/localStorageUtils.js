@@ -149,5 +149,13 @@ export const insertNewNoteForUser = (userObj, noteTitle, noteContent, folder = "
 }
 
 export const updateNoteForUser = (updatedNote) => {
-  // setPartialLocalState({ [STATE_NOTES_KEY]: [...getAllNotes(), ...getAllNotes()] })
+
+  const newNotes = getAllNotes().map(existingNote => {
+    if(existingNote.id === updatedNote.id){
+      return updatedNote
+    }
+    return existingNote
+  })
+
+  setPartialLocalState({ [STATE_NOTES_KEY]: newNotes })
 }
